@@ -1,0 +1,109 @@
+* {
+    box-sizing: border-box;
+}
+
+*:focus {
+    outline-color: #fbbf24;
+}
+
+body:has(dialog[open]) {
+    overflow: hidden;
+}
+
+:root {
+    --xanthous: rgb(185, 99, 0);
+    --eerie-block: rgba()
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Navigation Bar Styles */
+
+nav {
+    overflow: hidden;
+    background-color: #1f2933;
+    padding: 15px;
+
+}
+
+nav h1 {
+    float: left;
+    color: #fbbf24;
+    margin: 0;
+}
+
+nav ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    float: right;
+}
+
+nav li {
+    float: left;
+    margin-left: 20px;
+}
+
+nav a {
+     color: white;
+}
+
+.vk2 {
+    margin-top: 30px;
+    text-align: center;
+}
+
+#hero-image {
+    width: auto;
+    height: 400px;
+    background-image: url("../img/background.jpg");
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: cover;
+    margin-bottom: 50px;
+    border-radius: 20px;
+}
+
+/* Dialog Styles */
+
+#showdialog {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 10px;
+    background-color: var(--xanthous);
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+}
+
+main {
+    background-color: rgb(176, 176, 176);
+	margin: auto;
+	margin-top: 100px;
+	padding: 10px;
+	width: 70%;
+	position: relative;
+}
+
+img {
+    float: left;
+    width: 300px;
+    margin-right: 15px;
+    border-radius: 10px;
+}
+
+/* Footer Styles */
+
+footer {
+    background-color: brown;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}

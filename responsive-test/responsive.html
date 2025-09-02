@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="UTF-8" />
+
+  <link rel="stylesheet" href="responsive.css" />
+  <title>Caffe</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      padding: 20px;
+      background-color: #f4f4f4;
+    }
+
+    .mp{
+        display: block;
+        margin: auto;
+        width: 300px;
+        height: 300px;
+        
+
+      }
+
+    @media screen and (max-width: 700px) {
+      body {
+        background-color: #ffcc00;
+      }
+
+      h1 {
+        font-size: 28px;
+      }
+
+      p {
+        font-size: 15px;
+      }
+
+      .mp{
+        width: 80%;
+        height: auto;
+      }
+    }
+
+    @media (max-width: 500px) {
+      body {
+        background-color: #aeff00;
+      }
+
+      .mp{
+        width: 100%;
+        height: auto;
+      }
+    }
+
+    .coffi {
+      width: 200px;
+      height: 500px;
+      object-fit: cover;
+      background-color: aqua;
+      display: block;
+      margin: auto;
+    }
+
+    .bg-image {
+      width: 100%;
+      height: 300px;
+      background-color: #333;
+      background-image: url('metsa.avif');
+      background-attachment: fixed;
+    }
+
+    h2 {
+      /* 1rem = 16 px */
+      font-size: 1rem;
+    }
+    p{
+      font-size: 1.2rem;
+    }
+
+
+
+    </style>
+
+</head>
+<body>
+
+    <h1>Otsikko</h1>
+
+    <img class="mp" src="vk1_kuva.jpg" alt="Metsä">
+
+    <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sit amet accumsan arcu. Proin ac consequat arcu.
+        Morbi ut blandit risus. Donec mollis nec tellus et rutrum. Orci varius natoque penatibus et magnis dis parturient montes,
+        nascetur ridiculus mus. Ut convallis, sem sit amet interdum consectetuer, odio augue aliquam leo, nec dapibus tortor nibh sed augue.
+        Integer eu magna sit amet metus fermentum posuere et sit amet ligula.</p>  
+
+
+    <ul>
+        <li>Yksi</li>
+        <li>Kaksi</li>
+        <li>Kolme</li> 
+    </ul>
+
+
+    <h3>Responsive design</h3>
+    <img class="coffi" src="metsa.avif" alt="Responsive design">
+
+    <h2>Kuva Yksi Kaksi Kolme</h2>
+    <div class="bg-image"></div>
+
+  <script src="responsive.js"></script>
+</body>
+</html>

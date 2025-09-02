@@ -1,0 +1,79 @@
+* {
+    box-sizing: border-box;
+}
+
+*:focus {
+    outline-color: #fbbf24;
+}
+
+body:has(dialog[open]) {
+    overflow: hidden;
+}
+
+:root {
+    --xanthous: rgb(185, 99, 0);
+    --eerie-block: rgba()
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+nav {
+    overflow: hidden;
+    background-color: #1f2933;
+    padding: 10px;
+}
+
+nav h1 {
+    float: left;
+    color: #fbbf24;
+    margin: 0;
+}
+
+nav ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    float: right;
+}
+
+nav li {
+    float: left;
+    margin-left: 20px;
+}
+
+nav a {
+     color: white;
+}
+
+.vk2 {
+    margin-top: 30px;
+    text-align: center;
+}
+
+main {
+    background-color: rgb(176, 176, 176);
+	margin: auto;
+	margin-top: 100px;
+	padding: 10px;
+	width: 70%;
+	position: relative;
+}
+
+img {
+    float: left;
+    width: 300px;
+    margin-right: 15px;
+    border-radius: 10px;
+}
+
+footer {
+    background-color: brown;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
