@@ -1,11 +1,13 @@
-const dialog = document.querySelector('dialog');
-const showButton = document.querySelector('#showdialog');
-const closeButton = document.querySelector('dialog button');
+const dialog = document.getElementById('infoDialog');
+const showButton = document.getElementById('openDialog');
+const closeButton = document.getElementById('closeDialog');
 
-showButton.addEventListener('click', () => {
-  dialog.showModal();
+// Кнопка "Открыть" — открывает модальное окно
+showButton?.addEventListener('click', () => {
+  dialog?.showModal();
 });
 
-closeButton.addEventListener('click', () => {
-  dialog.close();
+// Кнопка "Закрыть" — закрывает диалог
+closeButton?.addEventListener('click', () => {
+  dialog?.close();
 });

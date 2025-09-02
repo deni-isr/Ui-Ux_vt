@@ -1,54 +1,86 @@
 <!DOCTYPE html>
 <html lang="fi">
-<head>
-  <meta charset="UTF-8" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description"
+          content="Löydä lähialueen lounaspaikat ja päivän ruokalistat. Viikkolistat saatavilla." />
+    <title>Caffe Shop | Lounas & ruokalistat</title>
 
-  <link rel="stylesheet" href="./css/demo.css" />
-  <title>Caffe</title>
-</head>
-<body>
-  <nav>
-    <h1>Caffe Shop</h1>
-    <ul>
-      <li><a href="#" class="active">Etusivu</a></li>
-      <li><a href="#">Ruokalistat</a></li>
-      <li><a href="#">Yhteystiedot</a></li>
-    </ul>
-  </nav>
+    <link rel="stylesheet" href="./css/demo.css" />
+    <script src="./js/vk2.js" defer></script>
+  </head>
 
-  <section>
-    <dialog>
-      <p>wdefewfw</p>
-      <p>fwfewfwef</p>
-      <ul>
-        <li>ferfef</li>
-      </ul>
-      <button>Close the dialog</button>
-    </dialog>
-  </section>
+  <body>
+    <header class="site-header">
+      <nav class="main-nav" aria-label="Päävalikko">
+        <a href="#etusivu" class="brand" id="brand">Caffe Shop</a>
+        <ul class="nav-links">
+          <li><a href="#etusivu" class="is-active">Etusivu</a></li>
+          <li><a href="#ruokalistat">Ruokalistat</a></li>
+          <li><a href="#yhteys">Yhteystiedot</a></li>
+        </ul>
+      </nav>
+    </header>
 
-  <a class="vk2">Seuraavan viikon sisältö</a>
-  
-  <button id="showdialog">Show the dialog</button>
+    <main id="etusivu">
+      <section class="hero">
+        <div class="hero__content">
+          <h1 class="hero__title">Tervetuloa Caffe Shopiin</h1>
+          <p class="hero__lead">
+            Lounas lähelläsi – tarkista päivän lista ja tule maistamaan tuore kahvi & herkut.
+          </p>
+          <button class="btn" id="openDialog">Avaa info</button>
+        </div>
+        <figure class="hero__media">
+          <img src="./img/vk1_kuva.jpg" alt="Kahvilan tunnelmallinen kuva" class="hero__img" />
+        </figure>
+      </section>
 
-  <main>
-    <img src="./img/vk1_kuva.jpg" alt="caffee picture">
-    <h2>Lisää meidän kasvista</h2>
-    <h3>Kahvi</h3>
-    <p>
-      Suomessa kahvi ei ole pelkkä juoma, vaan tärkeä osa kulttuuria ja sosiaalista elämää.
-      Suomalaiset juovat kahvia enemmän kuin missään muualla maailmassa – keskimäärin noin 12 kiloa vuodessa henkeä kohden,
-      mikä tarkoittaa useita kuppeja joka päivä. Kahvitauko, jota kutsutaan nimellä 'kahvitauko' tai tuttavallisesti 'kahvipaussi',
-      on olennainen osa työpäivää, ja se on jopa kirjattu moniin työehtosopimuksiin. Lisäksi Suomessa on tapana tarjota kahvia aina,
-      kun vieraita tulee kylään, ja usein sen kanssa tarjotaan pullaa. Kahvi on siis suomalaisille sekä arjen voimanlähde että
-      vieraanvaraisuuden symboli
-    </p>
-  </main>
+      <section class="notice" id="ruokalistat">
+        <a class="notice__pill">Seuraavan viikon sisältö</a>
+      </section>
 
-  <footer>
-    Copyright, Meitsi
-  </footer>
+      <section class="about" aria-labelledby="about-title">
+        <div class="about__wrap">
+          <h2 id="about-title">Lisää meistä</h2>
+          <h3>Kahvi</h3>
+          <p>
+            Suomessa kahvi ei ole pelkkä juoma, vaan tärkeä osa kulttuuria ja sosiaalista elämää.
+            Suomalaiset juovat kahvia enemmän kuin missään muualla – keskimäärin noin 12 kg/hlö/vuosi.
+            Kahvitauko on olennainen osa työpäivää ja kahvi on vieraanvaraisuuden symboli.
+          </p>
+        </div>
+      </section>
 
-  <script src="./js/vk2.js"></script>
-</body>
+      <section class="contact" id="yhteys" aria-labelledby="contact-title">
+        <h2 id="contact-title">Yhteystiedot</h2>
+        <address class="contact__info">
+          Caffe Shop, Kahvikatu 1, 00100 Helsinki<br />
+          Sähköposti: info@caffeshop.fi · Puh: 010 123 4567
+        </address>
+      </section>
+
+      <dialog id="infoDialog" class="modal">
+        <article class="modal__content">
+          <h3>Tietolaatikko</h3>
+          <p>Tervetuloa! Tilaa uutiskirjeemme ja saat viikkolistat sähköpostiisi.</p>
+
+          <form class="form" method="dialog">
+            <label class="form__label" for="emailField">Sähköposti</label>
+            <input class="form__input" id="emailField" name="email" type="email"
+                   placeholder="nimi@esimerkki.fi" required />
+            <menu class="form__actions">
+              <button value="cancel" class="btn btn--ghost" id="closeDialog">Sulje</button>
+              <button value="submit" class="btn">Tilaa</button>
+            </menu>
+          </form>
+        </article>
+      </dialog>
+    </main>
+
+    <footer class="site-footer">
+      <p>Copyright, Meitsi</p>
+    </footer>
+  </body>
 </html>
