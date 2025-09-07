@@ -1,13 +1,24 @@
-const dialog = document.getElementById('infoDialog');
-const showButton = document.getElementById('openDialog');
-const closeButton = document.getElementById('closeDialog');
+const dialog = document.querySelector('#signupDialog');
+const showButton = document.querySelector('#showdialog');
+const closeButton = document.querySelector('#closeDialog');
 
-// Кнопка "Открыть" — открывает модальное окно
-showButton?.addEventListener('click', () => {
-  dialog?.showModal();
+showButton.addEventListener('click', () => {
+  dialog.showModal();
+  const firstInput = dialog.querySelector('input');
+  firstInput?.focus();
 });
 
-// Кнопка "Закрыть" — закрывает диалог
-closeButton?.addEventListener('click', () => {
-  dialog?.close();
+closeButton.addEventListener('click', () => {
+  dialog.close();
+});
+
+dialog.addEventListener('click', (e) => {
+  const rect = dialog.getBoundingClientRect();
+  const inDialog =
+    e.clientX >= rect.left &&
+    e.clientX <= rect.right &&
+    e.clientY >= rect.top &&
+    e.clientY <= rect.bottom;
+
+  if (!inDialog) dialog.close();
 });

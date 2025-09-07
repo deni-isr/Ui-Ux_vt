@@ -1,0 +1,211 @@
+/* ========== Reset & base ========== */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+*:focus-visible { outline: 2px solid currentColor; outline-offset: 2px; }
+
+:root{
+  --xanthous: rgb(185, 99, 0);
+  --eerie-black: #181f25;
+  --gold-metallic: #e5b84b;
+  --engineering-orange: #d00307;
+  --kelly-green: #66b528;
+  --lightfont: #cacaca;
+  --bg: hsl(210, 25%, 8%);
+  --card: #1b2430;
+  --card-2: #1f2933;
+  --text: #e7e7e7;
+  --shadow: rgba(0,0,0,.55);
+}
+
+body:has(dialog[open]){ overflow-y: hidden; }
+
+body{
+  font-size: 16px;
+  color: var(--text);
+  line-height: 1.5;
+
+  background:
+    url("../img/coffee-beans.jpg") center/cover fixed no-repeat;
+}
+
+/* ========== Navigation ========== */
+nav{
+  background: var(--card-2);
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  backdrop-filter: saturate(140%) blur(2px);
+}
+
+nav h1{
+  color: #fbbf24;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+nav ul{
+  list-style: none;
+  display: flex;
+  gap: 18px;
+}
+
+nav a{
+  color: #fff;
+  text-decoration: none;
+  padding: 6px 10px;
+  border-radius: 8px;
+  transition: background-color .2s ease;
+}
+
+nav a:is(:hover, :focus-visible){ background: rgba(255,255,255,0.08); }
+
+/* ========== Main Card ========== */
+main{
+  background:
+    linear-gradient(180deg, rgba(31,41,51,.9), rgba(27,36,48,.95)),
+    url("../img/latte-art.jpg") center/cover no-repeat;
+  width: min(1000px, 92%);
+  margin: 28px auto 80px;
+  padding: 22px;
+  border-radius: 16px;
+  box-shadow: 0 12px 32px rgba(0,0,0,.35);
+  border: 1px solid rgba(255,255,255,.06);
+}
+
+/* ========== Media ========== */
+img{
+  float: left;
+  width: min(300px, 48%);
+  max-width: 100%;
+  height: auto;
+  margin: 0 16px 12px 0;
+  border-radius: 10px;
+  display: block;
+}
+
+/* ========== Buttons ========== */
+button, .btn,
+input[type="submit"], input[type="button"], input[type="reset"]{
+  display: inline-block;
+  width: auto;
+  max-width: max-content;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 10px;
+  background: var(--xanthous);
+  color: #111;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform .06s ease, opacity .2s ease, box-shadow .2s ease;
+}
+button:hover, .btn:hover,
+input[type="submit"]:hover, input[type="button"]:hover, input[type="reset"]:hover{
+  opacity: .9;
+  box-shadow: 0 8px 24px rgba(0,0,0,.25);
+}
+button:active, .btn:active,
+input[type="submit"]:active, input[type="button"]:active, input[type="reset"]:active{
+  transform: translateY(1px);
+}
+
+#showdialog{
+  background: rgb(27 36 48);
+  color: #ffffff;
+  padding: 12px 18px;
+  display: block;
+  margin: 40px auto;
+}
+
+/* ========== Dialog ========== */
+dialog {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: none;
+  border-radius: 14px;
+  padding: 0;
+  max-width: min(520px, 92%);
+  width: auto;
+  background: var(--card-2);
+  color: var(--text);
+  box-shadow: 0 24px 60px var(--shadow);
+}
+
+dialog::backdrop { background: rgba(0,0,0,.6); }
+
+.myForm { padding: 18px 18px 10px; }
+
+.myForm fieldset {
+  border: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.myForm label { font-weight: 600; margin-bottom: 2px; }
+
+.myForm input[type="text"],
+.myForm input[type="email"],
+.myForm input[type="password"]{
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #3a4450;
+  font-size: 0.95rem;
+  background: #0f1419;
+  color: var(--text);
+  transition: border-color .25s ease, box-shadow .25s ease, background-color .25s ease;
+}
+
+.myForm input:required:placeholder-shown {
+  border-color: #3a4450;
+  box-shadow: none;
+}
+
+.myForm input:required:not(:placeholder-shown):invalid{
+  border-color: var(--engineering-orange);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--engineering-orange) 35%, transparent);
+  background-color: color-mix(in srgb, var(--engineering-orange) 10%, #0f1419);
+}
+
+.myForm input:required:valid{
+  border-color: var(--kelly-green);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--kelly-green) 35%, transparent);
+  background-color: color-mix(in srgb, var(--kelly-green) 8%, #0f1419);
+}
+
+.formActions{
+  display: flex;
+  gap: 10px;
+  margin-top: 6px;
+}
+.formActions .btn--ghost{
+  background: transparent;
+  color: var(--lightfont);
+  border: 1px solid rgba(255,255,255,.15);
+}
+
+.myForm input[type="email"][required]:not(:placeholder-shown):invalid{
+  outline: 0;
+}
+
+/* ========== Footer ========== */
+footer{
+  background: brown;
+  color: white;
+  text-align: center;
+  padding: 18px;
+  margin-top: 40px;
+}
+
+/* ========== Responsive tweaks ========== */
+@media (max-width: 720px){
+  img{ float: none; width: 100%; margin: 0 0 14px 0; }
+  nav h1{ font-size: 1.1rem; }
+  nav ul{ gap: 10px; }
+}
