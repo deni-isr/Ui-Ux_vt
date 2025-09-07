@@ -1,109 +1,260 @@
-* {
-    box-sizing: border-box;
+* { box-sizing: border-box; margin: 0; padding: 0; }
+*:focus-visible { outline: 2px solid currentColor; outline-offset: 2px; }
+
+:root{
+  --xanthous: rgb(185, 99, 0);
+  --eerie-black: #181f25;
+  --gold-metallic: #e5b84b;
+  --engineering-orange: #d00307;
+  --kelly-green: #66b528;
+  --lightfont: #cacaca;
+  --bg: #0f1419;
+  --card: #1b2430;
+  --card-2: #1f2933;
+  --text: #e7e7e7;
+  --shadow: rgba(0,0,0,.55);
 }
 
-*:focus {
-    outline-color: #fbbf24;
+html, body { height: 100%; }
+body{
+  display: flex;
+  flex-direction: column;
+  font-size: 16px;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
 }
 
-body:has(dialog[open]) {
-    overflow: hidden;
+
+body:has(dialog[open]){ overflow-y: hidden; }
+
+html { font-size: 16px; }
+@media (max-width: 1024px){ html { font-size: 15px; } }
+@media (max-width: 768px){  html { font-size: 14px; } }
+@media (max-width: 480px){  html { font-size: 13.5px; } }
+
+h1 { font-size: clamp(1.25rem, 1.2rem + 1vw, 2rem); }
+h2 { font-size: clamp(1.1rem, 1rem + 0.9vw, 1.6rem); }
+h3 { font-size: clamp(1rem, 0.95rem + 0.7vw, 1.25rem); }
+
+nav{
+  background: var(--card-2);
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+nav h1{ color: #fbbf24; font-weight: 700; }
+nav ul{ list-style: none; display: flex; gap: 18px; }
+nav a{
+  color: #fff; text-decoration: none;
+  padding: 6px 10px; border-radius: 8px;
+  transition: background-color .2s ease;
 }
 
-:root {
-    --xanthous: rgb(185, 99, 0);
-    --eerie-block: rgba()
+nav a:is(:hover, :focus-visible){ background: rgba(255,255,255,0.08); }
+
+/* Nav skaalautuminen */
+@media (max-width: 1024px){
+  nav { padding: 12px 16px; }
+  nav ul { gap: 12px; flex-wrap: wrap; }
+  nav a { padding: 5px 8px; }
+}
+@media (max-width: 768px){
+  nav ul{ 
+    gap: 8px; 
+    flex-wrap: wrap; 
+    }
 }
 
-body {
-    margin: 0;
-    min-height: 100vh;
-    display: flex;
+@media (max-width: 480px) {
+  nav {
     flex-direction: column;
-}
-
-/* Navigation Bar Styles */
-
-nav {
-    overflow: hidden;
-    background-color: #1f2933;
-    padding: 15px;
-
-}
-
-nav h1 {
-    float: left;
-    color: #fbbf24;
-    margin: 0;
-}
-
-nav ul {
-    padding: 0;
-    margin: 0;
-    list-style: none;
-    float: right;
-}
-
-nav li {
-    float: left;
-    margin-left: 20px;
-}
-
-nav a {
-     color: white;
-}
-
-.vk2 {
-    margin-top: 30px;
-    text-align: center;
-}
-
-#hero-image {
-    width: auto;
-    height: 400px;
-    background-image: url("../img/background.jpg");
-    background-repeat: no-repeat;
-    background-position: center top;
-    background-size: cover;
-    margin-bottom: 50px;
-    border-radius: 20px;
-}
-
-/* Dialog Styles */
-
-#showdialog {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    padding: 10px;
-    background-color: var(--xanthous);
-    border: none;
-    border-radius: 5px;
-    color: white;
-    cursor: pointer;
-}
-
-main {
-    background-color: rgb(176, 176, 176);
-	margin: auto;
-	margin-top: 100px;
-	padding: 10px;
-	width: 70%;
-	position: relative;
-}
-
-img {
-    float: left;
-    width: 300px;
-    margin-right: 15px;
-    border-radius: 10px;
-}
-
-/* Footer Styles */
-
-footer {
-    background-color: brown;
-    color: white;
-    text-align: center;
+    align-items: flex-start;
+    gap: 12px;
+    height: auto;
     padding: 20px;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+  }
+
+  nav ul li {
+    width: 100%;
+  }
+
+  nav a {
+    display: block;
+    width: 100%;
+    padding: 10px 0;
+  }
+}
+
+.hero{
+  background:
+    linear-gradient(180deg, rgba(0,0,0,.35), rgba(0,0,0,.55)),
+    url("../img/background.webp") center/cover no-repeat;
+  min-height: clamp(240px, 40vh, 520px);
+  display: grid;
+  place-items: center;
+  padding: 24px 16px;
+}
+.hero__inner{
+  width: min(1000px, 92%);
+  text-align: center;
+  color: #fff;
+}
+.hero__title{
+  margin-bottom: 8px; font-weight: 800; letter-spacing: .3px;
+  text-shadow: 0 2px 16px rgba(0,0,0,.5);
+}
+.hero__subtitle{ opacity: .95; margin-bottom: 16px; }
+.hero__cta{ background: var(--gold-metallic); color: #111; }
+
+/* Heron pienet säädöt */
+@media (max-width: 768px){
+  .hero{ padding: 20px 14px; }
+  .hero__subtitle{ max-width: 60ch; margin-inline: auto; }
+}
+@media (max-width: 480px){
+  .hero{ min-height: 220px; }
+}
+
+/* ===== Main-kortti ===== */
+main{
+  background: var(--card);
+  width: min(1000px, 92%);
+  margin: 28px auto 40px;
+  padding: 22px;
+  border-radius: 16px;
+  box-shadow: 0 12px 32px rgba(0,0,0,.35);
+  border: 1px solid rgba(255,255,255,.06);
+  flex: 1;
+}
+
+/* ===== Media ===== */
+img{
+  float: left;
+  width: min(300px, 48%);
+  max-width: 100%;
+  height: auto;
+  margin: 0 16px 12px 0;
+  border-radius: 10px;
+  display: block;
+}
+
+/* ===== Painikkeet ===== */
+button, .btn,
+input[type="submit"], input[type="button"], input[type="reset"]{
+  display: inline-block;
+  width: auto; max-width: max-content;
+  padding: 10px 16px; border: none; border-radius: 10px;
+  background: var(--xanthous); color: #111; font-weight: 600;
+  cursor: pointer;
+  transition: transform .06s ease, opacity .2s ease, box-shadow .2s ease;
+}
+button:hover, .btn:hover,
+input[type="submit"]:hover, input[type="button"]:hover, input[type="reset"]:hover{
+  opacity: .9; box-shadow: 0 8px 24px rgba(0,0,0,.25);
+}
+button:active, .btn:active,
+input[type="submit"]:active, input[type="button"]:active, input[type="reset"]:active{
+  transform: translateY(1px);
+}
+
+/* Keskitetään Show-painike */
+#showdialog{
+  display: block;
+  margin: 40px auto;
+  background: rgb(27 36 48);
+  color: #ffffff;
+  padding: 12px 18px;
+}
+
+/* ===== Dialog ===== */
+dialog {
+  position: fixed; top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  border: none; border-radius: 14px; padding: 0;
+  max-width: min(520px, 92%); width: auto;
+  background: var(--card-2); color: var(--text);
+  box-shadow: 0 24px 60px var(--shadow);
+}
+dialog::backdrop { background: rgba(0,0,0,.6); }
+
+/* Dialogin sisältö */
+.myForm { padding: 18px 18px 10px; }
+.myForm fieldset {
+  border: none; display: flex; flex-direction: column;
+  gap: 12px; margin-top: 10px;
+}
+.myForm label { font-weight: 600; margin-bottom: 2px; }
+.myForm input[type="text"],
+.myForm input[type="email"],
+.myForm input[type="password"]{
+  padding: 10px 12px; border-radius: 8px; border: 1px solid #3a4450;
+  font-size: 0.95rem; background: #0f1419; color: var(--text);
+  transition: border-color .25s ease, box-shadow .25s ease, background-color .25s ease;
+}
+
+/* Piilota virhe ennen syöttöä */
+.myForm input:required:placeholder-shown { border-color: #3a4450; box-shadow: none; }
+
+.myForm input:required:not(:placeholder-shown):invalid{
+  border-color: var(--engineering-orange);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--engineering-orange) 35%, transparent);
+  background-color: color-mix(in srgb, var(--engineering-orange) 10%, #0f1419);
+}
+
+.myForm input:required:valid{
+  border-color: var(--kelly-green);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--kelly-green) 35%, transparent);
+  background-color: color-mix(in srgb, var(--kelly-green) 8%, #0f1419);
+}
+
+.formActions{ display: flex; gap: 10px; margin-top: 6px; }
+.formActions .btn--ghost{
+  background: transparent; color: var(--lightfont);
+  border: 1px solid rgba(255,255,255,.15);
+}
+
+/* ===== Footer ===== */
+footer{
+  background: brown; color: white; text-align: center;
+  padding: 18px; margin-top: 0; /* ei tarvita ylimääräistä marginaalia */
+}
+
+/* ===== Responsiiviset säädöt sisällölle ===== */
+@media (max-width: 900px)
+{ 
+    main { 
+        width: min(820px, 94%); 
+    } 
+}
+
+@media (max-width: 720px){
+  img{ 
+    float: none; 
+    width: 100%; 
+    margin: 0 0 14px 0; 
+}
+  main{ 
+    padding: 18px; 
+}
+}
+@media (max-width: 480px){
+  main{ 
+    padding: 14px; 
+    border-radius: 12px; 
+}
+  p{ 
+    max-width: 60ch; 
+}
 }

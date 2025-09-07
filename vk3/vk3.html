@@ -2,9 +2,9 @@
 <html lang="fi">
 <head>
   <meta charset="UTF-8" />
-
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="./css/vk3.css" />
-  <title>Caffe</title>
+  <title>Caffe Shop</title>
 </head>
 <body>
   <nav>
@@ -16,35 +16,71 @@
     </ul>
   </nav>
 
+  <header class="hero" role="banner" aria-label="Hero banner">
+    <div class="hero__inner">
+      <h2 class="hero__title">Tervetuloa Caffe Shopiin</h2>
+      <p class="hero__subtitle">Tuore paahdus, pehmeä maku – aina lähelläsi.</p>
+      <button class="btn hero__cta" id="showdialog-dup" aria-haspopup="dialog" aria-controls="signupDialog">
+        Liity jäseneksi
+      </button>
+    </div>
+  </header>
+
   <section>
-    <dialog>
-      <p>wdefewfw</p>
-      <p>fwfewfwef</p>
-      <ul>
-        <li>ferfef</li>
-      </ul>
-      <button>Close the dialog</button>
+    <dialog id="signupDialog" aria-labelledby="dialogTitle">
+      <form class="myForm" method="dialog">
+        <h3 class="main_cl" id="dialogTitle">Rekisteröidy tiedoillasi</h3>
+        <fieldset>
+          <label for="yourName">Sukunimi, minimi 3 kirjainta:</label>
+          <input
+            type="text"
+            id="yourName"
+            name="yourName"
+            placeholder="Sukunimi"
+            minlength="3"
+            maxlength="30"
+            required
+            autocomplete="family-name"
+          />
+          <label for="yourEmail">Email osoite (@metropolia.fi):</label>
+          <input
+            type="email"
+            id="yourEmail"
+            name="yourEmail"
+            placeholder="etunimi.sukunimi@metropolia.fi"
+            pattern=".+@metropolia\.fi"
+            required
+            autocomplete="email"
+          />
+          <label for="passWord">Salasana:</label>
+          <input
+            type="password"
+            id="passWord"
+            name="passWord"
+            placeholder="Salasana"
+            pattern="^(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,}$"
+            required
+            autocomplete="new-password"
+          />
+
+          <menu class="formActions">
+            <button type="button" class="btn btn--ghost" id="closeDialog">Sulje</button>
+            <button value="submit" class="btn">Lähetä</button>
+          </menu>
+        </fieldset>
+      </form>
     </dialog>
   </section>
 
-  <div id="hero-image"></div>
-  
-  <button id="showdialog">Show the dialog</button>
-
   <main>
-
-    <img class="mp" src="./img/black_coffe.png" alt="caffee picture">
-
-    <img src="./img/vk1_kuva.jpg" alt="caffee picture">
+    <img src="./img/black_coffe.webp" alt="Kahvikuppi">
     <h2>Lisää meidän kasvista</h2>
     <h3>Kahvi</h3>
     <p>
       Suomessa kahvi ei ole pelkkä juoma, vaan tärkeä osa kulttuuria ja sosiaalista elämää.
       Suomalaiset juovat kahvia enemmän kuin missään muualla maailmassa – keskimäärin noin 12 kiloa vuodessa henkeä kohden,
-      mikä tarkoittaa useita kuppeja joka päivä. Kahvitauko, jota kutsutaan nimellä 'kahvitauko' tai tuttavallisesti 'kahvipaussi',
-      on olennainen osa työpäivää, ja se on jopa kirjattu moniin työehtosopimuksiin. Lisäksi Suomessa on tapana tarjota kahvia aina,
-      kun vieraita tulee kylään, ja usein sen kanssa tarjotaan pullaa. Kahvi on siis suomalaisille sekä arjen voimanlähde että
-      vieraanvaraisuuden symboli
+      mikä tarkoittaa useita kuppeja joka päivä. Kahvitauko on olennainen osa työpäivää ja usein sen kanssa tarjotaan pullaa.
+      Kahvi on siis sekä arjen voimanlähde että vieraanvaraisuuden symboli.
     </p>
   </main>
 
