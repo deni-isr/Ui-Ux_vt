@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="../css/vk7.css" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <script src="https://kit.fontawesome.com/93e0147886.js" crossorigin="anonymous"></script>
+
+  <title>Caffe Shop</title>
+</head>
+<body>
+  <nav>
+    <h1>Caffe Shop</h1>
+    <ul>
+      <li><a href="#">Etusivu</a></li>
+      <li><a href="#">Ruokalistat</a></li>
+      <li><a href="#">Kirjaudu <i class="fa-solid fa-arrow-right-to-bracket"></i></a></li>
+      <input type="checkbox" class="checkbox" id="checkbox">
+				<label for="checkbox" class="checkbox-label">
+					<i class="fas fa-moon"></i>
+					<i class="fas fa-sun"></i>
+					<span class="ball"></span>
+				</label>
+    </ul>
+  </nav>
+
+  <!-- HERO FLEXBOX -->
+  <header class="hero" role="banner" aria-label="Hero banner">
+    <div class="hero__inner">
+      <h2 class="hero__title">Tervetuloa Caffe Shopiin</h2>
+      <p class="hero__subtitle">Tuore paahdus, pehmeä maku – aina lähelläsi.</p>
+      <button class="btn hero__cta" id="showdialog-dup" aria-haspopup="dialog" aria-controls="signupDialog">
+        Liity jäseneksi
+      </button>
+    </div>
+  </header>
+
+  <!-- DIALOG -->
+  <section>
+    <dialog id="signupDialog" aria-labelledby="dialogTitle">
+      <form class="myForm" method="dialog">
+        <h3 class="main_cl" id="dialogTitle">Rekisteröidy tiedoillasi</h3>
+        <fieldset>
+          <label for="yourName">Sukunimi, minimi 3 kirjainta:</label>
+          <input type="text" id="yourName" name="yourName" placeholder="Sukunimi" minlength="3" maxlength="30" required autocomplete="family-name"/>
+          <label for="yourEmail">Email osoite (@metropolia.fi):</label>
+          <input type="email" id="yourEmail" name="yourEmail" placeholder="etunimi.sukunimi@metropolia.fi" pattern=".+@metropolia\.fi" required autocomplete="email"/>
+          <label for="passWord">Salasana:</label>
+          <input type="password" id="passWord" name="passWord" placeholder="Salasana" pattern="^(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,}$" required autocomplete="new-password"/>
+          <menu class="formActions">
+            <button type="button" class="btn btn--ghost" id="closeDialog">Sulje</button>
+            <button value="submit" class="btn">Lähetä</button>
+          </menu>
+        </fieldset>
+      </form>
+    </dialog>
+  </section>
+
+  <!-- MAIN CONTENT -->
+  <main>
+    <img src="./img/black_coffe.webp" alt="Kahvikuppi">
+    <h2>Lisää meidän kasvista</h2>
+    <h3>Kahvi</h3>
+    <p>
+      Suomessa kahvi ei ole pelkkä juoma, vaan tärkeä osa kulttuuria ja sosiaalista elämää.
+      Suomalaiset juovat kahvia enemmän kuin missään muualla maailmassa – keskimäärin noin 12 kiloa vuodessa henkeä kohden,
+      mikä tarkoittaa useita kuppeja joka päivä. Kahvitauko on olennainen osa työpäivää ja usein sen kanssa tarjotaan pullaa.
+      Kahvi on siis sekä arjen voimanlähde että vieraanvaraisuuden symboli.
+    </p>
+  </main>
+
+<!-- RUOKALISTA GRID -->
+<section class="menu">
+  <h2>Ruokalista</h2>
+  <div class="menu__grid">
+    <div class="menu__item">
+      <img src="./img/menu/Omenapiirakka.jpg" alt="Omenapiirakka">
+      <h3>Omenapiirakka</h3>
+      <p>Perinteinen suomalainen omenapiirakka kanelilla.</p>
+    </div>
+    <div class="menu__item">
+      <img src="./img/menu/Juustokakku.avif" alt="Juustokakku">
+      <h3>Juustokakku</h3>
+      <p>Kermainen juustokakku marjojen kera.</p>
+    </div>
+    <div class="menu__item">
+      <img src="./img/menu/Suklaakakku.avif" alt="Suklaakakku">
+      <h3>Suklaakakku</h3>
+      <p>Täyteläinen suklaakakku suklaakuorrutteella.</p>
+    </div>
+    <div class="menu__item">
+      <img src="./img/menu/Mansikkatorttu.jpg" alt="Mansikkatorttu">
+      <h3>Mansikkatorttu</h3>
+      <p>Raikas mansikkatorttu vaniljakermalla.</p>
+    </div>
+    <div class="menu__item">
+      <img src="./img/menu/Kanelipulla.jpg" alt="Kanelipulla">
+      <h3>Kanelipulla</h3>
+      <p>Klassinen kanelilla maustettu makea herkku.</p>
+    </div>
+    <div class="menu__item">
+      <img src="./img/menu/Tiramisu.webp" alt="Tiramisu">
+      <h3>Tiramisu</h3>
+      <p>Italialainen kahvilla ja kaakaolla maustettu jälkiruoka.</p>
+    </div>
+  </div>
+</section>
+
+  <footer>
+    Copyright, Meitsi
+  </footer>
+
+  <script src="../js/vk7.js"></script>
+</body>
+</html>
